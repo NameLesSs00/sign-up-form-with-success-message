@@ -75,25 +75,14 @@ function Form({}) {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    try {
-      const response = await fetch("/api", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: emailData }),
-      });
-      if (response.ok) {
-        setvalidEmail(true);
-        // here the email is vaild
-        router.push(`/success?user=${encodeURIComponent(emailData)}`);
-      } else {
-        setvalidEmail(false);
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("An unexpected error occurred. Please try again.");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailData)) {
+      setvalidEmail(false);
+      return;
     }
+    {/*i cant use server logic as this is github who is hosting my page*/}
+    setvalidEmail(true);
+    router.push(`/success?user=${encodeURIComponent(emailData)}`);
   }
 
   return (

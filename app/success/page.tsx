@@ -7,12 +7,12 @@ import { Suspense } from "react";
 
 function SuccessContent() {
   const searchParams = useSearchParams();
-  const userEmail = searchParams.get("user"); // Get the `user` query parameter
+  const userEmail = searchParams.get("user"); 
 
   const router = useRouter();
 
   function handleOnClick() {
-    router.back(); // Navigate back
+    router.back();
   }
 
   return (
@@ -29,7 +29,9 @@ function SuccessContent() {
       </div>
 
       {/* Header */}
-      <h1 className="font-bold text-4xl mb-5 ml-7 sm:ml-0">Thanks for subscribing!</h1>
+      <h1 className="font-bold text-4xl mb-5 ml-7 sm:ml-0">
+        Thanks for subscribing!
+      </h1>
 
       {/* Message */}
       <p className="text-md sm:text-sm text-[hsl(0,0%,28%)] ml-7 sm:ml-0 sm:mb-8">
