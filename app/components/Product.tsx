@@ -10,7 +10,9 @@ import { useState } from "react";
 function StayUpdated(props: FormProps) {
   return (
     <>
-      <h1 className="text-xl font-bold w-[90%] mx-auto sm:text-4xl ">{props.header}</h1>
+      <h1 className="text-xl font-bold w-[90%] mx-auto sm:text-4xl ">
+        {props.header}
+      </h1>
       <p className="w-[90%] mx-auto my-6">{props.text}</p>
       <section>
         <div className="flex w-[90%] mx-auto">
@@ -57,15 +59,10 @@ function ImgMobile() {
 function ImgDesktop() {
   return (
     <div className="hidden sm:flex ml-auto h-full relative justify-center items-center">
-      <Image
-        src={illustrationDesktop}
-        alt="A nice img"
-        fill
-      />
+      <Image src={illustrationDesktop} alt="A nice img" fill />
     </div>
   );
 }
-
 
 function Form({}) {
   const [emailData, setEmailData] = useState("");
@@ -86,7 +83,6 @@ function Form({}) {
         },
         body: JSON.stringify({ email: emailData }),
       });
-      const result = await response.json();
       if (response.ok) {
         setvalidEmail(true);
         // here the email is vaild
@@ -139,14 +135,11 @@ export default function Product() {
   return (
     /*main container*/
     <div className=" grid grid-cols-1 bg-white sm:grid-cols-[1fr_1fr] h-screen sm:h-[30rem] sm:w-[40rem] sm:rounded-[20px] ">
- 
-
       <section className="sm:order-2 sm:p-1">
         <ImgMobile />
         <ImgDesktop />
       </section>
 
-   
       <section className=" sm:flex sm:items-center sm:p-">
         <div className="flex flex-col sm:order-1 ">
           <StayUpdated {...FormData[0]} />
