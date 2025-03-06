@@ -10,7 +10,6 @@ export async function POST(request:Request) {
     const validatoinResult = emailSchema.safeParse(email);
     if (!validatoinResult.success){
       return NextResponse.json(
-        {error:validatoinResult.error.errors[0].message},
         {status:400}
       )
     }
