@@ -86,7 +86,7 @@ function Form({}) {
       if (response.ok) {
         setvalidEmail(true);
         // here the email is vaild
-        router.push(`/pop-up?user=${encodeURIComponent(emailData)}`);
+        router.push(`/success`);
       } else {
         setvalidEmail(false);
       }

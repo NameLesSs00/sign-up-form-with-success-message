@@ -1,15 +1,17 @@
-"use client"
+"use client";
+
 import Image from "next/image";
 import iocn1 from "@/app/assets/images/icon-list.svg";
 import { useRouter, useSearchParams } from "next/navigation";
 
- export default function Page() {
+export default function Page() {
   const searchParams = useSearchParams();
-  const userEmail = searchParams.get("user");
+  const userEmail = searchParams.get("user"); // Get the `user` query parameter
+
   const router = useRouter();
 
   function handleOnClick() {
-    router.back();
+    router.back(); // Navigate back
   }
 
   return (
