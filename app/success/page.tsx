@@ -3,8 +3,9 @@
 import Image from "next/image";
 import iocn1 from "@/app/assets/images/icon-list.svg";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export default function Page() {
+function SuccessContent() {
   const searchParams = useSearchParams();
   const userEmail = searchParams.get("user"); // Get the `user` query parameter
 
@@ -47,5 +48,13 @@ export default function Page() {
         </button>
       </div>
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SuccessContent />
+    </Suspense>
   );
 }
