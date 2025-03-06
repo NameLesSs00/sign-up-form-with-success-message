@@ -18,8 +18,10 @@ export async function POST(request:Request) {
       { status: 200 }
     );
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
       { status: 500 }
     );
+    
   }
 }
